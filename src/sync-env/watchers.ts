@@ -22,17 +22,17 @@ export function watchFileChange(file: vscode.Uri): void {
     } else {
         des = [...destinationEnv];
     }
-
+	
     des.forEach(destFile => {
-        if (fs.existsSync(getFilePath(file.path) + destFile)) {
-            const targetFile = readfile(`${getFilePath(file.path)}${destFile}`);
-            const changedFile = readfile(file.path);
+        if (fs.existsSync(getFilePath(file.fsPath) + destFile)) {
+            const targetFile = readfile(`${getFilePath(file.fsPath)}${destFile}`);
+            const changedFile = readfile(file.fsPath);
     
             writefile( 
-                `${getFilePath(file.path)}${destFile}`, 
+                `${getFilePath(file.fsPath)}${destFile}`, 
                 prepareNewConfig(targetFile, changedFile)
             );
-        }  
+        }
     });
 }
 
@@ -67,6 +67,7 @@ export function watchFileCreate(file: vscode.Uri): void {
 }
 
 export function watchFile(file: String): vscode.Disposable {
+	console.log(`watchFile called ${file}`)
     const fileWatcher = createFileSystemWatcher(`**/${file}`);
 
     fileWatcher.onDidChange(watchFileChange);

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isConfigSame = exports.prepareNewConfig = exports.envToObject = exports.envToObjectWithSpace = exports.readfile = exports.writefile = exports.getFilePath = exports.getFileName = exports.getEnvDestination = exports.getEnvSource = void 0;
 const fs = require("fs");
 const vscode = require("vscode");
 function getEnvSource() {
@@ -10,6 +11,7 @@ function getEnvSource() {
         // default to `.env`
         envSource = ".env";
     }
+    console.log(`Using source: ${envSource}`);
     return envSource;
 }
 exports.getEnvSource = getEnvSource;
@@ -37,6 +39,7 @@ function getFilePath(path) {
 }
 exports.getFilePath = getFilePath;
 function writefile(path, data) {
+    console.log(`Writing to file: ${path}`, data);
     fs.writeFileSync(path, data, 'utf8');
 }
 exports.writefile = writefile;

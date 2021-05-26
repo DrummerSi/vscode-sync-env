@@ -8,7 +8,7 @@
 	"icon": "images/logo.png",
 	"license": "MIT",
 	"engines": {
-		"vscode": "^1.33.0"
+		"vscode": "^1.37.0"
 	},
 	"categories": [
 		"Other"
@@ -52,7 +52,7 @@
 		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"typescript": "^3.3.1",
+		"typescript": "^3.5.1",
 		"vscode": "^1.1.28",
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",

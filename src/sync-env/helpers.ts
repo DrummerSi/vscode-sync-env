@@ -10,6 +10,8 @@ export function getEnvSource(): string {
         // default to `.env`
         envSource = ".env";
     }
+	
+	console.log(`Using source: ${envSource}`)
 
     return envSource;
 }
@@ -41,6 +43,7 @@ export function getFilePath(path: String): string {
 }
 
 export function writefile (path: string, data: string) {
+	console.log(`Writing to file: ${path}`, data)
     fs.writeFileSync(path, data, 'utf8');
 }
 

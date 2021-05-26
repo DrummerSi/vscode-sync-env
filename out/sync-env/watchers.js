@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.watchFile = exports.watchFileCreate = exports.watchFileChange = exports.createFileSystemWatcher = void 0;
 const fs = require("fs");
 const vscode = require("vscode");
 const _1 = require("./");
@@ -18,10 +19,10 @@ function watchFileChange(file) {
         des = [...destinationEnv];
     }
     des.forEach(destFile => {
-        if (fs.existsSync(_1.getFilePath(file.path) + destFile)) {
-            const targetFile = _1.readfile(`${_1.getFilePath(file.path)}${destFile}`);
-            const changedFile = _1.readfile(file.path);
-            _1.writefile(`${_1.getFilePath(file.path)}${destFile}`, _1.prepareNewConfig(targetFile, changedFile));
+        if (fs.existsSync(_1.getFilePath(file.fsPath) + destFile)) {
+            const targetFile = _1.readfile(`${_1.getFilePath(file.fsPath)}${destFile}`);
+            const changedFile = _1.readfile(file.fsPath);
+            _1.writefile(`${_1.getFilePath(file.fsPath)}${destFile}`, _1.prepareNewConfig(targetFile, changedFile));
         }
     });
 }
@@ -53,6 +54,7 @@ function watchFileCreate(file) {
 }
 exports.watchFileCreate = watchFileCreate;
 function watchFile(file) {
+    console.log(`watchFile called ${file}`);
     const fileWatcher = createFileSystemWatcher(`**/${file}`);
     fileWatcher.onDidChange(watchFileChange);
     fileWatcher.onDidCreate(watchFileCreate);
