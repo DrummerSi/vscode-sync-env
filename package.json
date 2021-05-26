@@ -19,23 +19,23 @@
 	"contributes": {
 		"commands": [
 		  {
-			"command": "sync-env.activateWatchers",
+			"command": "env-sync.activateWatchers",
 			"title": "Activate watchers"
 		  },
 		  {
-			"command": "sync-env.deactivateWatchers",
+			"command": "env-sync.deactivateWatchers",
 			"title": "Deactivate watchers"
 		  }
 		],
 		"configuration": {
-			"title": "SyncEnv Settings",
+			"title": "Env-Sync Settings",
 			"properties": {
-			  "sync-env.envSource": {
+			  "env-sync.envSource": {
 				"type": "string",
 				"default": ".env",
 				"description": "Specifies which file is the Source file."
 			  },
-			  "sync-env.envDestination": {
+			  "env-sync.envDestination": {
 				"type": ["string", "null", "array"],
 				"default": [".env.example"],
 				"description": "Specifies the Destination file/files."
@@ -56,7 +56,8 @@
 		"vscode": "^1.1.37",
 		"tslint": "^5.20.1",
 		"@types/node": "^10.17.60",
-		"@types/mocha": "^2.2.48"
+		"@types/mocha": "^2.2.48",
+		"@types/vscode": "1.56.0"
 	},
 	"dependencies": {
 		"diff": "^4.0.2"

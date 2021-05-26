@@ -1,12 +1,14 @@
-# sync-env
+# env sync
 
-This is the README for ["sync-env"](https://marketplace.visualstudio.com/items?itemName=dongido.sync-env) which helps you keep your env files in sync. Once you have installed the `sync-env` extension, it will begin synchronizing any source env file and destination env file/files found in your project root folder. It also works with sub folders too.
+Note: This is forked from the original 'sync-env' extension, but using the latest VSCode features, to allow::
+- Extension now fully works with local Windows file systems
 
-Annnnd if you like it, consider suppporting me at [Pateron](https://www.patreon.com/dongido)
+
+This extension helps you keep your env files in sync. Once you have installed the `env-sync` extension, it will begin synchronizing any source env file and destination env file/files found in your project root folder. It also works with sub folders too.
 
 ## Installing
 
-Download and install it from the vs-code market [here](https://marketplace.visualstudio.com/items?itemName=dongido.sync-env)
+Download and install it from the vs-code market [here](#)
 
 ![Sync Env Demo](./images/sync-env.gif)
 
@@ -60,41 +62,8 @@ To deactivate the extension:
 
 Notable changes:
 
-## [1.0.3] - 2019-04-10
+## [1.0.0] - 2021-05-26
 
 ### Added
-- Added basics for writing tests
-- Provided provision for customising .env files
-- Prompt to copy content of watched files for created config file.
-### Changed
-- Refactored code
-### Removed
-
-## [1.0.4] - 2019-09-27
-
-### Added
-- Added extension activation command
-- Added extension deactivation command
-- [Env variable](https://github.com/dongido001/vscode-sync-env/issues/3) can now be synced!
-- [Comments](https://github.com/dongido001/vscode-sync-env/issues/2) are now respected - 
-### Changed
-- Refactored code to allow activating and deactivating the extension
-### Removed
-
-## [1.0.5] - 2020-05-25
-
-### Added
-- You can now customize/specify your env files
-### Changed
-### Removed
-
-## BUG AND FEATURE REQUEST
-Please, open an [issue on GitHub](https://github.com/dongido001/vscode-sync-env/issues) if you want to report a bug or you thought of a good feature to have. 
-
-Contribution is always wellcomed!
-
-## TODO
-
-- [x] Allow users to set the files they want to sync.
-
-- [] ...And other requested features
+- Forked from un-maintained `sync-env` extension 
+- Fully supports Windows-based filesystem, unlike the previous extension which only supported Unix-like systems (MacOS & Linux)

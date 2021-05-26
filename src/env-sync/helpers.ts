@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as vscode from 'vscode';
 
 export function getEnvSource(): string {
-    const settings = vscode.workspace.getConfiguration('sync-env');
+    const settings = vscode.workspace.getConfiguration('env-sync');
     let { envSource } = settings;
 
     if (!envSource || !envSource.length) {
@@ -10,14 +10,12 @@ export function getEnvSource(): string {
         // default to `.env`
         envSource = ".env";
     }
-	
-	console.log(`Using source: ${envSource}`)
 
     return envSource;
 }
 
 export function getEnvDestination(): string | Array<string> {
-    const settings = vscode.workspace.getConfiguration('sync-env');
+    const settings = vscode.workspace.getConfiguration('env-sync');
     let { envDestination } = settings;
 
     if (!envDestination || !envDestination.length) {
@@ -43,7 +41,6 @@ export function getFilePath(path: String): string {
 }
 
 export function writefile (path: string, data: string) {
-	console.log(`Writing to file: ${path}`, data)
     fs.writeFileSync(path, data, 'utf8');
 }
 
@@ -67,7 +64,7 @@ export function envToObjectWithSpace (env: string): Array<any> {
             } else {
                 const lineArray = line.split('=');
                 config.push({
-                    isSpace: !lineArray[0],
+                    isSpace: lineArray.length == 1,
                     key: lineArray[0] || 'space',
                     value: lineArray[1] || '',
                 });

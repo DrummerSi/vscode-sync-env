@@ -1,7 +1,7 @@
 import * as assert from 'assert';
 import {
     getFileName
-} from '../sync-env';
+} from '../env-sync';
 
 const filePath = [
   {path: "/users/fish/.env", expect: '.env'},

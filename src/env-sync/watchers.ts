@@ -6,7 +6,7 @@ import {
     prepareNewConfig, 
     writefile,
     getEnvDestination
-} from './';
+} from '.';
 
 export function createFileSystemWatcher(blob: string): vscode.FileSystemWatcher {
     return vscode.workspace.createFileSystemWatcher(blob);
@@ -23,7 +23,7 @@ export function watchFileChange(file: vscode.Uri): void {
         des = [...destinationEnv];
     }
 	
-    des.forEach(destFile => {
+	des.forEach(destFile => {
         if (fs.existsSync(getFilePath(file.fsPath) + destFile)) {
             const targetFile = readfile(`${getFilePath(file.fsPath)}${destFile}`);
             const changedFile = readfile(file.fsPath);

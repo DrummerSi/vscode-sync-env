@@ -4,7 +4,7 @@ exports.isConfigSame = exports.prepareNewConfig = exports.envToObject = exports.
 const fs = require("fs");
 const vscode = require("vscode");
 function getEnvSource() {
-    const settings = vscode.workspace.getConfiguration('sync-env');
+    const settings = vscode.workspace.getConfiguration('env-sync');
     let { envSource } = settings;
     if (!envSource || !envSource.length) {
         // empty source file provided or invalid...
@@ -15,7 +15,7 @@ function getEnvSource() {
 }
 exports.getEnvSource = getEnvSource;
 function getEnvDestination() {
-    const settings = vscode.workspace.getConfiguration('sync-env');
+    const settings = vscode.workspace.getConfiguration('env-sync');
     let { envDestination } = settings;
     if (!envDestination || !envDestination.length) {
         // empty destination file provided or invalid...
@@ -61,7 +61,7 @@ function envToObjectWithSpace(env) {
         else {
             const lineArray = line.split('=');
             config.push({
-                isSpace: !lineArray[0],
+                isSpace: lineArray.length == 1,
                 key: lineArray[0] || 'space',
                 value: lineArray[1] || '',
             });
